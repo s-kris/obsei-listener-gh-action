@@ -3,9 +3,9 @@ name: listen to twitter
 on:
   push:
     branches:
-      - main
- schedule:
-   - cron: '0 9-23 * * *' #schedule between 9am to 11pm every hour
+     - main
+schedule:
+  - cron: '0 9-23 * * *' #schedule between 9am to 11pm every hour
 
 jobs:
   testing_workflow:
