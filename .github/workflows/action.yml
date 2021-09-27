@@ -24,9 +24,9 @@ jobs:
 
       - name: Execute workflow
         env:
-          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
-          TWITTER_CLIENT_ID: ${{ secrets.TWITTER_CLIENT_ID }}
-          TWITTER_SECRET: ${{ secrets.TWITTER_SECRET }}
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          slack_channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          twitter_consumer_key: ${{ secrets.TWITTER_CLIENT_ID }}
+          twitter_consumer_secret: ${{ secrets.TWITTER_SECRET }}
         run: |
           python workflow.py
