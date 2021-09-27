@@ -1,8 +1,7 @@
 analyzer:
-  _target_: obsei.analyzer.TransformersNERAnalyzer
-  device: auto
-  model_name_or_path: elastic/distilbert-base-cased-finetuned-conll03-english
-analyzer_config: null
+  _target_: obsei.analyzer.dummy_analyzer.DummyAnalyzer
+analyzer_config:
+  _target_: obsei.analyzer.dummy_analyzer.DummyAnalyzerConfig
 sink:
   _target_: obsei.sink.SlackSink
 sink_config:
