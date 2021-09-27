@@ -28,5 +28,6 @@ jobs:
           slack_channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
           twitter_consumer_key: ${{ secrets.TWITTER_CLIENT_ID }}
           twitter_consumer_secret: ${{ secrets.TWITTER_SECRET }}
+          twitter_bearer_token: ${{ secrets.TWITTER_BEARER_TOKEN }}
         run: |
           python workflow.py
