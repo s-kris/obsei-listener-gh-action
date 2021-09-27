@@ -1,0 +1,1 @@
+git+git://github.com/obsei/obsei@2c3800b6f7fc97aabc3d33ccf112d33e8e0ef04a#egg=obsei

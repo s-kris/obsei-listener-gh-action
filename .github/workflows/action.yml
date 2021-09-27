@@ -1,0 +1,31 @@
+name: listen to twitter
+
+on:
+  push:
+    branches:
+      - main
+ schedule:
+   - cron: '0 9-23 * * *' #schedule between 9am to 11pm every hour
+
+jobs:
+  testing_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Execute workflow
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          TWITTER_CLIENT_ID: ${{ secrets.TWITTER_CLIENT_ID }}
+          TWITTER_SECRET: ${{ secrets.TWITTER_SECRET }}
+        run: |
+          python workflow.py

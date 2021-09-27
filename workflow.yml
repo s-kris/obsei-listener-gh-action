@@ -1,0 +1,22 @@
+analyzer:
+  _target_: obsei.analyzer.TransformersNERAnalyzer
+  device: auto
+  model_name_or_path: elastic/distilbert-base-cased-finetuned-conll03-english
+analyzer_config: null
+sink:
+  _target_: obsei.sink.SlackSink
+sink_config:
+  _target_: obsei.sink.SlackSinkConfig
+  channel_id: ${{ env.SLACK_CHANNEL_ID }}
+  slack_token: ${{ env.SLACK_TOKEN }}
+source:
+  _target_: obsei.source.TwitterSource
+source_config:
+  _target_: obsei.source.TwitterSourceConfig
+  cred_info:
+    _target_: obsei.source.TwitterCredentials
+    consumer_key: ${{ env.TWITTER_CLIENT_ID }}
+    consumer_secret: ${{ env.TWITTER_SECRET }}
+  lookup_period: 1h
+  max_tweets: '10'
+  query: blog suggest
