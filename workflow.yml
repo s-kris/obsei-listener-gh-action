@@ -8,11 +8,8 @@ analyzer_config:
   - blog
   - enquiry
   - wordpress
-  - suggestion
-  - costly
   - hosting
   - medium
-  - performance
   multi_class_classification: true
 sink:
   _target_: obsei.sink.SlackSink
@@ -24,6 +21,6 @@ source_config:
   _target_: obsei.source.TwitterSourceConfig
   cred_info:
     _target_: obsei.source.TwitterCredentials
-  lookup_period: 1h
+  lookup_period: 3h
   max_tweets: '30'
-  query: blog suggest
+  query: blog platform suggest
