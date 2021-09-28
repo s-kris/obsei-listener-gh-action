@@ -6,7 +6,7 @@ on:
     branches:
       - master
   schedule:
-      - cron: '0 9-23 * * *' #schedule between 9am to 11pm every hour
+      - cron: '0 */3 * * *' #schedule between 9am to 11pm every hour
 
 jobs:
   testing_workflow:
