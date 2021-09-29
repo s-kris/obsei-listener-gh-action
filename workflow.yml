@@ -33,4 +33,4 @@ source_config:
     _target_: obsei.source.TwitterCredentials
   lookup_period: 3h
   max_tweets: '30'
-  query: blog platform suggest
+  query: blog hosting
