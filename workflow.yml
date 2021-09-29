@@ -16,15 +16,15 @@ sink:
 sink_config:
   _target_: obsei.sink.SlackSinkConfig
   jinja_template: |
-```
-     {%- for key, value in payload.items() recursive%}
-         {%- if value is mapping -%}
-{{loop(value.items())}}
-         {%- else %}
-{{key}}: {{value}}
-         {%- endif %}
-     {%- endfor%}
-```
+    ```
+         {%- for key, value in payload.items() recursive%}
+             {%- if value is mapping -%}
+    {{loop(value.items())}}
+             {%- else %}
+    {{key}}: {{value}}
+             {%- endif %}
+         {%- endfor%}
+    ```
 source:
   _target_: obsei.source.TwitterSource
 source_config:
