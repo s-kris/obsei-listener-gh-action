@@ -6,26 +6,29 @@ analyzer_config:
   _target_: obsei.analyzer.classification_analyzer.ClassificationAnalyzerConfig
   add_positive_negative_labels: false
   labels:
-  #- blog
-  #- enquiry
-  #- wordpress
-  #- hosting
-  #- medium
+   - blog
+   - enquiry
+   - wordpress
+   - hosting
+   - medium
   multi_class_classification: true
-  #use_sentiment_model: false
 sink:
   _target_: obsei.sink.SlackSink
 sink_config:
   _target_: obsei.sink.SlackSinkConfig
   jinja_template: |
+    :bell: Hi there!, a new `<{{payload['meta']['tweet_url']}}|tweet>` of interest is found by *Obsei*
+    >Tweet Content: 
+    ```{{payload['meta']['text']}}```
+    >Classifier Data:
     ```
-           {%- for key, value in payload.items() recursive%}
-               {%- if value is mapping -%}
-      {{loop(value.items())}}
-               {%- else %}
-      {{key}}: {{value}}
-               {%- endif %}
-           {%- endfor%}
+     {%- for key, value in payload['segmented_data']['classifier_data'].items() recursive%}
+         {%- if value is mapping -%}
+    {{loop(value.items())}}
+         {%- else %}
+    {{key}}: {{value}}
+         {%- endif %}
+     {%- endfor%}
     ```
 source:
   _target_: obsei.source.TwitterSource
@@ -35,15 +38,4 @@ source_config:
     _target_: obsei.source.TwitterCredentials
   lookup_period: 3h
   max_tweets: '10'
-  query: suggest a blogging platform
-  tweet_fields:
-    - "created_at"
-    #- "public_metrics"
-    - "text"
-  user_fields:
-    #- "name"
-    #- "public_metrics"
-    #- "username"
-    #- "verified"
-  expansions:  
-    #- "author_id"
+  query: blog
