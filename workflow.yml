@@ -35,11 +35,12 @@ source_config:
   max_tweets: '10'
   query: hello test
   tweet_fields:
-    #- "created_at"
+    - "created_at"
     #- "public_metrics"
     - "text"
   user_fields:
     #- "name"
     #- "public_metrics"
-    - "username"
+    #- "username"
     #- "verified"
+  expansion:  
