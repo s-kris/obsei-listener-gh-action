@@ -5,12 +5,13 @@ analyzer:
 analyzer_config:
   _target_: obsei.analyzer.classification_analyzer.ClassificationAnalyzerConfig
   labels:
-  - blog
-  - enquiry
+  #- blog
+  #- enquiry
   #- wordpress
   #- hosting
   #- medium
   multi_class_classification: true
+  use_sentiment_model: false
 sink:
   _target_: obsei.sink.SlackSink
 sink_config:
