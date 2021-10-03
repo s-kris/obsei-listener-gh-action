@@ -41,6 +41,5 @@ source_config:
   user_fields:
     #- "name"
     #- "public_metrics"
-    #- "username"
+    - "username"
     #- "verified"
-  expansions:
