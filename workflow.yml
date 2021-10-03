@@ -4,6 +4,7 @@ analyzer:
   model_name_or_path: typeform/mobilebert-uncased-mnli
 analyzer_config:
   _target_: obsei.analyzer.classification_analyzer.ClassificationAnalyzerConfig
+  add_positive_negative_labels: false
   labels:
   #- blog
   #- enquiry
@@ -11,7 +12,6 @@ analyzer_config:
   #- hosting
   #- medium
   multi_class_classification: true
-  add_positive_negative_labels: false
   #use_sentiment_model: false
 sink:
   _target_: obsei.sink.SlackSink
