@@ -11,7 +11,7 @@ analyzer_config:
   #- hosting
   #- medium
   multi_class_classification: true
-  use_sentiment_model: false
+  #use_sentiment_model: false
 sink:
   _target_: obsei.sink.SlackSink
 sink_config:
