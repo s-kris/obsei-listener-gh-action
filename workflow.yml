@@ -32,7 +32,7 @@ source_config:
   cred_info:
     _target_: obsei.source.TwitterCredentials
   lookup_period: 3h
-  max_tweets: '2'
+  max_tweets: '10'
   query: hello test
   tweet_fields:
     #- "created_at"
