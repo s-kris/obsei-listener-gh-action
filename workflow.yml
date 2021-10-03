@@ -7,9 +7,9 @@ analyzer_config:
   labels:
   - blog
   - enquiry
-  - wordpress
-  - hosting
-  - medium
+  #- wordpress
+  #- hosting
+  #- medium
   multi_class_classification: true
 sink:
   _target_: obsei.sink.SlackSink
@@ -32,14 +32,15 @@ source_config:
   cred_info:
     _target_: obsei.source.TwitterCredentials
   lookup_period: 3h
-  max_tweets: '30'
+  max_tweets: '2'
   query: hello test
   tweet_fields:
-    - "created_at"
-    - "public_metrics"
+    #- "created_at"
+    #- "public_metrics"
     - "text"
   user_fields:
-    - "name"
-    - "public_metrics"
-    - "username"
-    - "verified"
+    #- "name"
+    #- "public_metrics"
+    #- "username"
+    #- "verified"
+  expansions:
