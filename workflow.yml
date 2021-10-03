@@ -43,4 +43,5 @@ source_config:
     #- "public_metrics"
     #- "username"
     #- "verified"
-  expansion:  
+  expansions:  
+    #- "author_id"
