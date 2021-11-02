@@ -1,1 +1,1 @@
-git+git://github.com/obsei/obsei@534a974e126a0bc0fb8e976aa3117a933fe7ce9d#egg=obsei
+obsei==0.0.10
