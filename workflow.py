@@ -28,5 +28,14 @@ analyzer_response_list = analyzer.analyze_input(
     analyzer_config=analyzer_config
 )
 
+# Adding filtering logic
+filtered_list = [
+    response
+    for response in analyzer_response_list
+    if response.segmented_data['classifier_data']['about blog'] > 0.7
+       and (response.segmented_data['classifier_data']['blog hosting'] > 0.5 or response.segmented_data['classifier_data']['about wordpress'] > 0.5 or response.segmented_data['classifier_data']['about medium'] > 0.5)
+       and (response.segmented_data['classifier_data']['need suggestion'] > 0.5 or response.segmented_data['classifier_data']['need alternative'] > 0.5)
+]
+
 # This will send analyzed output to configure sink ie Slack, Zendesk etc
-sink_response_list = sink.send_data(analyzer_response_list, sink_config)
+sink_response_list = sink.send_data(filtered_list, sink_config)
