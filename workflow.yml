@@ -39,3 +39,5 @@ source_config:
   lookup_period: 3h
   max_tweets: '10'
   query: suggest a blogging platform
+  # Adding few search query. Not perfect but adding here so can refine properly later
+  # ((suggest blog) OR (suggestion blog) OR (suggestions blog) OR (suggest blogging) OR (suggestion blogging) OR (suggestions blogging)) AND (wordpress OR medium OR host OR hosting OR platform) -is:retweet lang:en -happy -exciting -excited -favorite -fav -amazing -lovely -incredible
