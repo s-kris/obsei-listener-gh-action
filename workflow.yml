@@ -6,11 +6,12 @@ analyzer_config:
   _target_: obsei.analyzer.classification_analyzer.ClassificationAnalyzerConfig
   add_positive_negative_labels: false
   labels:
-   - blog
-   - enquiry
-   - wordpress
-   - hosting
-   - medium
+   - about blog
+   - need suggestion
+   - need alternative
+   - about wordpress
+   - about medium
+   - blog hosting
   multi_class_classification: true
 sink:
   _target_: obsei.sink.SlackSink
@@ -37,7 +38,7 @@ source_config:
   cred_info:
     _target_: obsei.source.TwitterCredentials
   lookup_period: 3h
-  max_tweets: '10'
-  query: suggest a blogging platform
+  max_tweets: '20'
+  query: '((suggest blog) OR (suggestion blog) OR (suggestions blog) OR (suggest blogging) OR (suggestion blogging) OR (suggestions blogging)) (wordpress OR medium OR host OR hosting OR platform) -is:retweet lang:en -happy -exciting -excited -favorite -fav -amazing -lovely -incredible'
   # Adding few search query. Not perfect but adding here so can refine properly later
   # ((suggest blog) OR (suggestion blog) OR (suggestions blog) OR (suggest blogging) OR (suggestion blogging) OR (suggestions blogging)) AND (wordpress OR medium OR host OR hosting OR platform) -is:retweet lang:en -happy -exciting -excited -favorite -fav -amazing -lovely -incredible
